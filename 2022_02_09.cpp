@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <iterator>
 
 namespace asd {
     class bar {
@@ -19,6 +23,11 @@ int main(int argc, char *argv[]){
     // smart pointers
     // operator overloading
     // smart pointers
-    // std::copy, ostream_iterator
+    std::vector<int> testvector;
+    for (int i = 1; i<=10; i++){
+        testvector.push_back(pow(i,3));
+    }
+    std::ostream_iterator<int> print_it (std::cout," ");
+    std::copy(testvector.begin(),testvector.end(),print_it);
     return 0;
 }
