@@ -47,7 +47,7 @@ class int_vector {
             for(int i = 0; i < other.size; i++) {
                 arr.get()[i] = other.arr.get()[i];
             }
-            other.arr.reset(); 
+            other.arr.reset();
         };
         int_vector& operator=(int_vector&& other) {
             size = std::move(other.size); 
@@ -67,23 +67,57 @@ class int_vector {
         }
 };
 
+std::ostream &operator<< (std::ostream &stream, const int_vector &vector)
+{
+    if (vector.size == 0)
+        stream << "empty";
+    else 
+    { 
+        for (int i = 0; i < vector.size ; i++)
+        {
+            stream <<  vector.arr.get()[i] << " "; 
+        }
+    }
+    return stream;
+}
+
+std::istream &operator>> (std::istream &stream, int_vector &vector)
+{
+    int size, value;
+    std::cout << "size:" << std::endl;
+    std::cin >> size;
+    std::cout << "value:" << std::endl;
+    std::cin >> value;
+    int_vector temp(size, value);
+    vector = int_vector(temp);
+    return stream;
+}
+
 int main(int argc, char *argv[]){
 
-    print_adl(asd::bar()); // adl arguement defined lookup
+    // adl arguement defined lookup
+    print_adl(asd::bar());
+
     // std::array 
-    // smart pointers
+    
+    
     // operator overloading
     // smart pointers
-
-    // testing special member functions 
+    //special member functions testing
     int_vector v1(10, 5); 
-    int_vector v2; 
+    int_vector v2, v4; 
     std::cout << v1.size << " " << v2.size << std::endl; 
     v2 = v1;
     std::cout << v1.size << " " << v2.size << std::endl; 
     int_vector v3 = std::move(v2);
-    std::cout << v2.size << " " << v3.size << std::endl; 
+    std::cout << v2.size << " " << v3.size << std::endl;
+    std::cout << "v1:" << v1 << std::endl;
+    //std::cout << "v2:" << v2 << std::endl; problematic
+    std::cout << "v3:" << v3 << std::endl; 
+    std::cin >> v4;
+    std::cout << "v4:" << v4 << std::endl;
 
+    //std::copy, ostream_iterator
     std::vector<int> testvector;
     for (int i = 1; i<=10; i++){
         testvector.push_back(pow(i,3));

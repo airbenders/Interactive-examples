@@ -5,7 +5,6 @@
 * special member functions
 * smart pointers
 * operator overloading
-* smart pointers
 * std::copy, ostream_iterator
 
 ## Paylaşılan Linkler
