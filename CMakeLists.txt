@@ -10,3 +10,5 @@ else()
 endif()
 
 add_executable(2022_02_09 "2022_02_09.cpp")
+
+add_executable(2022_02_16 "2022_02_16.cpp")
