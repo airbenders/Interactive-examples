@@ -1,6 +1,6 @@
 ## Çalışılan Konular
 **2022_02_09**
-* adl arguement defined lookup 
+* adl argument dependent lookup 
 * std::array 
 * special member functions
 * smart pointers
