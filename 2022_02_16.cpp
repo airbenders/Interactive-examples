@@ -27,7 +27,7 @@ public:
     }
 
     void multiply_rows(int c1, int c2, int c3, int n){
-        for (int i=0; i <n; i++){
+        for (int i=0; i <n*3; i++){
             multiply_row(row_1, c1);
             multiply_row(row_2, c2);
             multiply_row(row_3, c3);
@@ -36,7 +36,7 @@ public:
 
     void multiply_rows_threaded(int c1, int c2, int c3, int n){
         std::vector<std::thread> threads;
-        for (int i=0; i <n; i++){
+        for (int i=0; i <n*3; i++){
             threads.push_back(std::thread(&Matrix_3::multiply_row, this, std::ref(row_1), c1));
             threads.push_back(std::thread(&Matrix_3::multiply_row, this, std::ref(row_2), c2));
             threads.push_back(std::thread(&Matrix_3::multiply_row, this, std::ref(row_3), c3));
