@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <chrono>
 
 class Matrix_3{
 public:
@@ -41,9 +42,7 @@ public:
             threads.push_back(std::thread(&Matrix_3::multiply_row, this, std::ref(row_3), c3));
         }
         
-        for(int i = 0; i < 3*n; i++){
-            threads[i].join();
-         }
+        std::for_each(threads.begin(), threads.end(), std::mem_fn(&std::thread::join));
 
     }
 private:
