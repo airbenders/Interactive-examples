@@ -75,6 +75,19 @@ private:
     std::vector<int> row_3;
 };
 
+//Virtual Override
+struct Account {
+    virtual void withdraw(double amount){
+        std::cout << "In Account::withdraw" << std::endl;
+    }
+};
+
+struct Checking : public Account {
+    virtual void withdraw(double amount) {
+        std::cout << "In Checking::withdraw" << std::endl;
+    }
+};
+
 
 int main(){
     try
@@ -116,5 +129,19 @@ int main(){
     catch(std::exception& e) {
         std::cout << e.what() << std::endl;
     }
+    
+    //Virtual Override
+    Account *p1 = new Account();
+    Account *p2 = new Checking();
+
+    p1->withdraw(1000);
+    p2->withdraw(1000);
+    std::cout << "---Pointers are over---" << std::endl;
+
+    Account p3 = Account();
+    Account p4 = Checking(); //Pointers�z neden olmuyor anlamad�m.
+
+    p3.withdraw(1000);
+    p4.withdraw(1000);
 }
 
