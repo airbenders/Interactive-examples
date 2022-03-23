@@ -96,7 +96,7 @@ int main(){
         Matrix_3 matrix_2(1231, 4562, 7893, 2344, 5675, 8996, 3457, 6788, 9999);
 
         std::chrono::steady_clock::time_point begin_2 = std::chrono::steady_clock::now();
-        matrix_2.multiply_rows_threaded(117, 128, 139, 2);
+        // matrix_2.multiply_rows_threaded(117, 128, 139, 2);
         std::chrono::steady_clock::time_point end_2 = std::chrono::steady_clock::now();
         std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::nanoseconds> (end_2 - begin_2).count() << "[ns]" << std::endl;
 
